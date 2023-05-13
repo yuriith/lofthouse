@@ -1,0 +1,171 @@
+//====================================================================================================
+.page {
+  // .page__main
+  &__main {
+    padding-top: rem(296);
+    padding-bottom: rem(74);
+    min-height: rem(840);
+    background: url('@img/first-screen.jpg') center / cover no-repeat;
+  }
+  // .page__benefits
+  &__benefits {
+    padding: rem(120) rem(0);
+  }
+  // .page__appartments
+  &__appartments {
+  }
+}
+.main {
+  // .main__container
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  // .main__body
+  &__body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    &:not(:last-child) {
+      margin-bottom: rem(80);
+    }
+  }
+  // .main__title
+  &__title {
+    font-size: rem(48);
+    line-height: math.div(64 , 48);
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: rem(80);
+    }
+  }
+  // .main__mouse
+  &__mouse {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: mouse 3s ease-in-out infinite running;
+    
+  }
+  // .main__info
+  &__info {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(30);
+    font-size: rem(18);
+    line-height: math.div(21 , 18);
+    padding-top: rem(200);
+  }
+  // .main__adress
+  &__adress {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+  }
+  // .main__phone
+  &__phone {
+  }
+}
+
+.benefits {
+  // .benefits__container
+  &__container {
+    max-width: rem(848);
+  }
+  // .benefits__list
+  &__list {
+    display: flex;
+    column-gap: rem(70);
+  }
+  // .benefits__item
+  &__item {
+    text-align: center;
+  }
+  // .benefits__icon
+  &__icon {
+    margin-bottom: rem(53);
+  }
+  // .benefits__text
+  &__text {
+    line-height: math.div(27 , 20);
+    font-family: 'Roboto';
+    font-weight: 300;
+  }
+}
+
+.appartments {
+  // .appartments__container
+  &__container {
+  }
+  // .appartments__title
+  &__title {
+  }
+  // .appartments__list
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(30);
+  }
+  // .appartments__card
+  &__card {
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    overflow: hidden;
+    @media (any-hover: hover){
+      &:hover{
+        color: $accent;
+        .appartments__image {
+          transform: scale(1.1);
+        }
+        &::after{
+          opacity: 1;
+          
+        }
+      }
+    }
+    &::after{
+      content:'';
+      opacity: 0;
+      z-index: 7;
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      border: 3px double rgba($color: #fff, $alpha: 0.4);
+      transition: opacity 0.3s ease 0s;
+    }
+    &::before{
+      content:'';
+      position: absolute;
+      z-index: 6;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(180deg, #242B33 0%, rgba(36, 43, 51, 0) 0.01%, #242B33 100%);
+    }
+  }
+  // .appartments__image
+  &__image {
+    position: relative;
+    z-index: 5;
+    transition: all 0.3s ease 0s;
+    filter: contrast(110%) brightness(1.2) saturate(1.2);
+  }
+  // .appartments__name
+  &__name {
+    position: absolute;
+    bottom: 44px;
+    left: 50px;
+    right: 50px;
+    font-size: rem(24);
+    line-height: math.div(28 , 24);
+    font-weight: 400;
+    z-index: 50;
+  }
+}
+//====================================================================================================
