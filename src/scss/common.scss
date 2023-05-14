@@ -3,32 +3,122 @@
   font-family: 'Playfair Display';
   font-weight: 700;
   font-size: rem(36);
-  line-height: math.div(48 , 36);
+  line-height: math.div(48, 36);
   color: $accent;
+
+  @media (max-width:$mobile) {
+    font-size: rem(28);
+  }
 }
+
 .link {
   display: flex;
   align-items: center;
   gap: rem(14);
   transition: color 0.3s ease 0s;
-  @media (any-hover: hover){
-    &:hover{
+
+  @media (max-width:$mobile) {
+    gap: rem(8);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
       color: $accent;
+
       svg path {
         fill: $accent;
       }
     }
   }
 }
-@keyframes mouse{
 
-  0%{
+@keyframes mouse {
+
+  0% {
     transform: translate(-50%, 0);
   }
-  50%{
+
+  50% {
     transform: translate(-50%, 100%);
   }
-  100%{
+
+  100% {
     transform: translate(-50%, 0);
   }
+}
+
+.form {
+
+  // .form__input
+  &__input {
+    height: 50px;
+    padding: rem(12);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    transition: background-color 0.2s ease 0s;
+
+    &::placeholder {
+      font-size: rem(14);
+      line-height: math.div(27, 14);
+      color: #BEBEBE;
+    }
+
+    &:focus,
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  // .form__privacy
+  &__privacy {
+    font-size: rem(13);
+    line-height: math.div(16, 13);
+    text-align: center;
+    color: #E7E7E7;
+  }
+
+  // .form__button
+  &__button {
+    height: 50px;
+    font-size: rem(16);
+    color: #fff;
+    text-align: center;
+    padding: rem(12);
+    font-weight: 700;
+    background-color: $accent;
+    transition: background-color 0.2s ease 0s;
+    transition: transform 0.2s ease-in-out 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: saturate($accent, 15);
+      }
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+}
+
+.visually-hidden {
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@mixin decorNumber {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  font-family: $font-accent;
+  font-size: rem(400);
+  line-height: math.div(533, 400);
+  opacity: 0.02;
 }
